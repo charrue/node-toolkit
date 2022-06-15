@@ -1,0 +1,65 @@
+{
+  "name": "@charrue/node-toolkit",
+  "version": "0.1.0",
+  "description": "A toolkit for Node.js",
+  "keywords": [
+    "typescript",
+    "node",
+    "toolkit",
+    "charrue"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charrue/node-toolkit"
+  },
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "lint": "eslint --fix",
+    "prepare": "husky install",
+    "test": "vitest"
+  },
+  "lint-staged": {
+    "*.ts": "npm run lint"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "esbuild": "^0.14.43"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.16.3",
+    "@charrue/eslint-config-base": "latest",
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "13.3.0",
+    "@rollup/plugin-typescript": "^8.3.3",
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.5.0",
+    "commitizen": "^4.2.4",
+    "conventional-changelog": "^3.1.25",
+    "conventional-changelog-cli": "^2.2.2",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.3.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.60.2",
+    "rollup-plugin-dts": "^4.0.1",
+    "rollup-plugin-esbuild": "^4.7.2",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.2",
+    "vite": "^2.8.1",
+    "vitest": "latest"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "readme": "https://github.com/charrue/node-toolkit/README.md"
+}
