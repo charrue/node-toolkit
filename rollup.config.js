@@ -21,6 +21,7 @@ const config = [
       typescript({
         include: [ "src/**/*.ts" ],
         exclude: [ "/__tests__/**/*" ],
+        sourceMap: false,
         declaration: true,
         declarationDir: path.resolve(__dirname, "dist"),
       }),

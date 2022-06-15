@@ -1,10 +1,11 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-underscore-dangle */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 // from https://github.com/vitejs/vite/blob/main/packages/vite/src/node/config.ts
 import path from "path";
+import { createRequire } from "module";
 import { build } from "esbuild";
 
+const _require = createRequire(import.meta.url);
 interface NodeModuleWithCompile extends NodeModule {
   _compile(code: string, filename: string): any
 }
@@ -23,7 +24,7 @@ const bundleConfigFile = async (filename: string) => {
     plugins: [
       {
         name: "externalize-deps",
-        setup: (buildConfig) => {
+        setup(buildConfig) {
           buildConfig.onResolve({ filter: /.*/ }, (args) => {
             const id = args.path;
             if (id[0] !== "." && !path.isAbsolute(id)) {
@@ -46,18 +47,18 @@ const bundleConfigFile = async (filename: string) => {
 
 const loadConfigFromBundledFile = (fileName: string, bundledCode: string) => {
   const extension = path.extname(fileName);
-  const defaultLoader = require.extensions[extension]!;
-  require.extensions[extension] = (module, filename) => {
+  const defaultLoader = _require.extensions[extension]!;
+  _require.extensions[extension] = (module, filename) => {
     if (filename === fileName) {
       (module as NodeModuleWithCompile)._compile(bundledCode, filename);
     } else {
       defaultLoader(module, filename);
     }
   };
-  delete require.cache[require.resolve(fileName)];
-  const raw = require(fileName);
+  delete _require.cache[require.resolve(fileName)];
+  const raw = _require(fileName);
   const config = raw.__esModule ? raw.default : raw;
-  require.extensions[extension] = defaultLoader;
+  _require.extensions[extension] = defaultLoader;
   return config;
 };
 
