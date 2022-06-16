@@ -5,7 +5,7 @@ import path from "path";
 import { createRequire } from "module";
 import { build } from "esbuild";
 
-const _require = createRequire(import.meta.url);
+const _require = createRequire(__dirname);
 interface NodeModuleWithCompile extends NodeModule {
   _compile(code: string, filename: string): any
 }
