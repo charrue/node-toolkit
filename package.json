@@ -1,6 +1,6 @@
 {
   "name": "@charrue/node-toolkit",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A toolkit for Node.js",
   "keywords": [
     "typescript",
@@ -14,6 +14,7 @@
   },
   "license": "MIT",
   "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
     "dist",

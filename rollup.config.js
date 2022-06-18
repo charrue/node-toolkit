@@ -5,15 +5,27 @@ import typescript from "@rollup/plugin-typescript";
 import commonJs from "@rollup/plugin-commonjs";
 import pkg from "./package.json";
 
-const config = [
-  {
+const rollupConfigs = {
+  cjs: {
+    module: "CommonJS",
+    format: "cjs",
+    ext: "js",
+  },
+  esm: {
+    module: "ESNext",
+    format: "esm",
+    ext: "mjs",
+  },
+};
+
+const config = Object.entries(rollupConfigs).map(([mod, moduleConfig]) => {
+  return {
     input: path.resolve(__dirname, "./src/index.ts"),
     output: {
       dir: path.resolve(__dirname, "dist"),
-      exports: "named",
-      format: "cjs",
-      externalLiveBindings: false,
-      freeze: false,
+      format: mod,
+      exports: module === "cjs" ? "named" : undefined,
+      entryFileNames: `[name].${moduleConfig.ext}`,
     },
     external: Object.keys(pkg.dependencies),
     plugins: [
@@ -27,8 +39,8 @@ const config = [
       }),
       commonJs(),
     ],
-  },
-];
+  };
+});
 
 rimraf.sync("./dist");
 export default config;
