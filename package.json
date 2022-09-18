@@ -35,9 +35,11 @@
     }
   },
   "dependencies": {
+    "@types/rimraf": "^3.0.2",
     "esbuild": "^0.14.43"
   },
   "devDependencies": {
+    "@babel/core": "^7.19.1",
     "@babel/eslint-parser": "^7.16.3",
     "@charrue/eslint-config-base": "latest",
     "@commitlint/cli": "^15.0.0",
