@@ -1,6 +1,7 @@
 // https://github.com/sindresorhus/find-up
 import { resolve, parse, dirname } from "path";
-import { LocatePathOptions, toPath, locatePath } from "./locate-file";
+import { toPath, locatePath } from "./locate-file";
+import type { LocatePathOptions } from "./locate-file";
 
 export interface FindPathOptions extends Omit<LocatePathOptions, "absolute"> {
   stopAt?: string;
