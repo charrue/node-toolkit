@@ -7,3 +7,5 @@ export * from "./find-up";
 export * from "./fs-exists ";
 export * from "./locate-file";
 export * from "./rmdir";
+export * from "./hrtime";
+export * from "./read-package-json";
