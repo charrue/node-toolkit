@@ -5,8 +5,8 @@ export const writeJson = (
   filePath: string,
   data: any,
   option: {
-    replacer?: ((key: string, value: any) => any),
-    space?: string | number
+    replacer?: ((key: string, value: any) => any);
+    space?: string | number;
   } = {},
 ) => {
   ensureDir(filePath);

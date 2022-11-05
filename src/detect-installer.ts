@@ -60,7 +60,7 @@ const AGENTS = {
   },
 };
 
-type Agent = keyof typeof AGENTS
+type Agent = keyof typeof AGENTS;
 
 const LOCKS: Record<string, Agent> = {
   "pnpm-lock.yaml": "pnpm",

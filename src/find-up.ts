@@ -13,7 +13,7 @@ export function findUpMultiple(name: string | string[], options: FindPathOptions
   const { root } = parse(directory);
   const stopAt = resolve(directory, options.stopAt || root);
   const limit = options.limit || Number.POSITIVE_INFINITY;
-  const paths = [ name ].flat();
+  const paths = [name].flat();
 
   let matches: string[] = [];
   while (stopAt !== directory) {
@@ -21,7 +21,7 @@ export function findUpMultiple(name: string | string[], options: FindPathOptions
     let foundPath = locatePath(paths, { ...options, cwd: directory });
 
     if (foundPath) {
-      foundPath = Array.isArray(foundPath) ? foundPath : [ foundPath ];
+      foundPath = Array.isArray(foundPath) ? foundPath : [foundPath];
       // eslint-disable-next-line no-loop-func
       matches = matches.concat(foundPath.map((t) => resolve(directory, t)));
     }

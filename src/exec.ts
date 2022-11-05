@@ -1,6 +1,6 @@
-import cp from "child_process";
+import { execSync } from "child_process";
 
-export const exec = (cmd: string, cwd: string = process.cwd()) => cp.execSync(cmd, {
+export const exec = (cmd: string, cwd: string = process.cwd()) => execSync(cmd, {
   cwd,
   stdio: ["pipe", "pipe", "pipe"],
 }).toString();

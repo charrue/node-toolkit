@@ -2,9 +2,9 @@ import { readFileSync } from "fs";
 import { fsExists } from "./fs-exists ";
 import { stripBom } from "./stripBom";
 
-type ReadJsonOption = {
+interface ReadJsonOption {
   beforeParse?: (content: string) => string;
-  reviver?: (this: any, key: string, value: any) => any
+  reviver?: (this: any, key: string, value: any) => any;
 }
 
 const parse = (buffer: Buffer, { beforeParse, reviver }: ReadJsonOption = {}) => {
