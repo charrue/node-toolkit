@@ -1,7 +1,7 @@
 {
   "name": "@charrue/node-toolkit",
   "version": "0.3.0",
-  "description": "A toolkit for Node.js",
+  "description": "A develop toolkit for Node.js",
   "keywords": [
     "typescript",
     "node",
@@ -21,7 +21,7 @@
     "README.md"
   ],
   "scripts": {
-    "build": "unbuild",
+    "build": "tsup",
     "lint": "eslint src/*.ts --fix",
     "prepare": "husky install",
     "test": "vitest"
@@ -37,7 +37,7 @@
     "lint-staged": "^12.1.2",
     "tslib": "^2.3.1",
     "typescript": "^4.5.2",
-    "unbuild": "^0.9.4",
+    "tsup": "^6.5.0",
     "vitest": "latest"
   },
   "publishConfig": {
