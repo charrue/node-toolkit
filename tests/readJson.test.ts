@@ -1,6 +1,7 @@
 import { describe, expect, test } from "vitest";
 import { resolve } from "path";
 import { readJson } from "../src/readJson";
+
 const PKG_PATH = resolve(__dirname, "../package.json");
 
 describe("readJson", () => {

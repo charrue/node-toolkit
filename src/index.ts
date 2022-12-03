@@ -9,5 +9,6 @@ export * from "./locate-file";
 export * from "./rmdir";
 export * from "./hrtime";
 export * from "./readJson";
+export * from "./read-package-json";
 export * from "./stripBom";
 export * from "./writeJson";
