@@ -13,8 +13,9 @@
     "url": "git+https://github.com/charrue/node-toolkit"
   },
   "license": "MIT",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist",
@@ -45,7 +46,8 @@
     "vitest": "latest"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "readme": "https://github.com/charrue/node-toolkit/README.md"
 }

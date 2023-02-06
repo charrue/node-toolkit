@@ -7,4 +7,6 @@ export default defineConfig({
     resolve: true,
   },
   format: ["cjs", "esm"],
+  platform: "node",
+  treeshake: true,
 });
